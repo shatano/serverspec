@@ -18,12 +18,6 @@ describe interface('eth0') do
   its(:command) { should eq "ip addr show eth0 | grep 'inet 192\\.168\\.10\\.10/24 '" }
 end
 
-###add ######
-describe interface('eth1') do
-  it { should have_ipv4_address("192.168.100.10/24") }
-  its(:command) { should eq "ip addr show eth0 | grep 'inet 192\\.168\\.10\\.10/24 '" }
-end
-
 describe interface('invalid-interface') do
   let(:stdout) { '1000' }
   its(:speed) { should_not eq 100 }
